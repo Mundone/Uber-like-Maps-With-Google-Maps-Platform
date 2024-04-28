@@ -5,7 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'repositories/maps_repository.dart';
 import 'screens/ride_booking/ride_booking_screen.dart';
 
-const IOS_SIMULATOR_BASE_URL = 'http://localhost:8080';
+// const IOS_SIMULATOR_BASE_URL = 'http://localhost:8080';
+const IOS_SIMULATOR_BASE_URL = 'http://192.168.0.135:8080';
 const ANDROID_EMULATOR_BASE_URL = 'http://10.0.2.2:8080';
 
 void main() {

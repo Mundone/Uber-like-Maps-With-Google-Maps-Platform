@@ -55,14 +55,14 @@ class _RideBookingChooseDropOffState extends State<_RideBookingChooseDropOff> {
             child: Column(
               children: [
                 Text(
-                  'Set your destination',
+                  'Хүрэх газраа сонгоно уу.',
                   style: textTheme.titleLarge!.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  'Type and pick from the suggestions',
+                  'Бичиж хайгаад, санал болгож буй газраас сонгоорой.',
                   style: textTheme.bodyLarge,
                 ),
                 Divider(height: 32.0),
@@ -109,7 +109,7 @@ class _RideBookingChooseDropOffState extends State<_RideBookingChooseDropOff> {
                             controller: dropOffAddressController,
                             decoration: const InputDecoration(
                               isDense: true,
-                              hintText: 'Where to?',
+                              hintText: 'Хаашаа?',
                               prefixIcon: Icon(Icons.search),
                             ),
                             onChanged: (String value) {
@@ -174,7 +174,7 @@ class _RideBookingChooseDropOffState extends State<_RideBookingChooseDropOff> {
                           ConfirmDropOffAddressEvent(),
                         );
                   },
-                  child: const Text('Confirm destination'),
+                  child: const Text('Хүрэх газраа баталгаажуулах'),
                 )
               ],
             ),

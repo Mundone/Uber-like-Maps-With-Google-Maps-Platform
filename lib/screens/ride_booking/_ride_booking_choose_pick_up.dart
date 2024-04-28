@@ -46,13 +46,13 @@ class _RideBookingChoosePickUpState extends State<_RideBookingChoosePickUp> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Choose your pick-up address',
+                  'Авхуулах газраа сонгоно уу.',
                   style: textTheme.titleLarge!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 4.0),
                 Text(
-                  'Drag the map to move the pin',
+                  'Хатгуурыг хөдөлгөхийн тулд газрын зургийг чирнэ үү.',
                   style: textTheme.bodyLarge,
                 ),
                 const Divider(height: 32.0),
@@ -60,7 +60,7 @@ class _RideBookingChoosePickUpState extends State<_RideBookingChoosePickUp> {
                   readOnly: true,
                   controller: controller,
                   decoration: InputDecoration(
-                    hintText: 'Search',
+                    hintText: 'Хайх',
                     prefixIcon: Container(
                       margin: const EdgeInsets.all(12.0),
                       color: colorScheme.primary,
@@ -73,6 +73,35 @@ class _RideBookingChoosePickUpState extends State<_RideBookingChoosePickUp> {
                     suffixIcon: const Icon(Icons.search),
                   ),
                 ),
+                Expanded(
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        readOnly: true,
+                        controller: pickUpAddressController,
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          prefixIcon: Icon(Icons.search),
+                        ),
+                      ),
+                      TextFormField(
+                        controller: dropOffAddressController,
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          hintText: 'Хаашаа?',
+                          prefixIcon: Icon(Icons.search),
+                        ),
+                        onChanged: (String value) {
+                          // TODO: DEBOUNCE
+
+                          context.read<RideBookingBloc>().add(
+                                SearchDropOffAddressEvent(query: value),
+                              );
+                        },
+                      ),
+                    ],
+                  ),
+                ),
                 FilledButton(
                   style: FilledButton.styleFrom(
                     minimumSize: const Size.fromHeight(48.0),
@@ -82,7 +111,7 @@ class _RideBookingChoosePickUpState extends State<_RideBookingChoosePickUp> {
                         .read<RideBookingBloc>()
                         .add(ConfirmPickUpAddressEvent());
                   },
-                  child: Text('Confirm pick-up'),
+                  child: Text('Авхуулах газраа баталгаажуулах'),
                 )
               ],
             ),

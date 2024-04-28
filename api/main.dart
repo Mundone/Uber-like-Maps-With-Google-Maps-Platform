@@ -8,7 +8,7 @@ late GoogleMapsClient mapsClient;
 Future<HttpServer> run(Handler handler, InternetAddress ip, int port) {
   // TODO: Consider using environment variables for the API key (e.g. envied)
   mapsClient = GoogleMapsClient(
-    apiKey: 'YOUR_API_KEY',
+    apiKey: 'AIzaSyCOWuPruqlwUT8DxTwQ_oZmZZ62L72fX10',
   );
   return serve(handler, ip, port);
 }

@@ -39,6 +39,7 @@ class RideBookingBloc extends Bloc<RideBookingEvent, RideBookingState> {
         ),
       );
     } catch (err) {
+      print('EERRRRRRRRRRRRRRR: $err');
       emit(state.copyWith(status: RideBookingStatus.error));
     }
   }
